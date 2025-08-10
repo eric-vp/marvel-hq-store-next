@@ -1,6 +1,6 @@
 import Link from "next/link"
 import styled from "styled-components"
-import BotaoComprar from "./BotaoComprar"
+import BotaoComprar, {StyledComprar} from "./BotaoComprar"
 
 const StyledCard = styled.div`
     padding: 1rem;
@@ -9,10 +9,10 @@ const StyledCard = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1 1 calc(50% - 1rem);
-    align-items: center;
+    align-items: flex-start;
     gap: .5rem;
     transition: .2s;
-
+    
     &:hover {
         box-shadow: 0 5px 20px 0px #ddd;
     }
@@ -20,6 +20,10 @@ const StyledCard = styled.div`
     @media (min-width: 768px) {
         flex: 1 1 calc(20% - 1rem);
         max-width: calc(20% - 1rem);
+
+        &:hover ${StyledComprar} {
+            visibility: visible;
+        }
     }
 
     img {
@@ -38,9 +42,9 @@ export default function HqCard({index, img, titulo}) {
             <Link href={`/detalhes?id=${index + 1}`}>
                 <img src={img} alt={titulo} />
             </Link>
-                <p>{titulo}</p>
-                <StyledPreco>R$ 30,00</StyledPreco>
-                <BotaoComprar />
+            <p>{titulo}</p>
+            <StyledPreco>R$ 30,00</StyledPreco>
+            <BotaoComprar />
         </StyledCard>
     )
 }

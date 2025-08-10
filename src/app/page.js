@@ -3,6 +3,7 @@
 import styled from "styled-components"
 import Header from "./components/Header"
 import HqCard from "./components/HqCard";
+import { useEffect, useState } from "react";
 
 
 const CardContainer = styled.div`
@@ -17,18 +18,36 @@ const CardContainer = styled.div`
 `
 
 export default function Home() {
-    return (
-        <>
-          <Header />
-          <CardContainer>
-            {Array.from({ length: 10 }).map((_, index) => (
+  const [comics, setComics] = useState([]);
+
+  useEffect(() => {
+    async function fetchComics() {
+      const res = await fetch("/api/comics");
+      const data = await res.json();
+      setComics(data.results || []);
+    }
+    fetchComics();
+  }, [])
+
+  return (
+      <>
+        <Header />
+        <CardContainer>
+          {comics.length > 0 ? (
+            comics
+            .filter(comic => comic.name && comic.name.trim() !== "")
+            .slice(0, 10)
+            .map((comic, index) => (
               <HqCard
                 key={index}
-                img="https://m.media-amazon.com/images/I/919iJKHbeVL._SL1500_.jpg"
-                titulo={`Título ${index + 1}`}
+                img={comic.image?.medium_url}
+                titulo={comic.name}
               />
-            ))}
-          </CardContainer>
-        </>
-    )
+            ))
+          ) : (
+            <p>Carregando quadrinhos...</p>
+          )}
+        </CardContainer>
+      </>
+  )
 }

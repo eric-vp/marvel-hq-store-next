@@ -1,7 +1,8 @@
+import { ShoppingCart } from "lucide-react"
 import Link from "next/link"
 import styled from "styled-components"
 
-const StyledComprar = styled.button`
+export const StyledComprar = styled.button`
     border: none;
     background: #ec1d24;
     color: #fff;
@@ -11,18 +12,30 @@ const StyledComprar = styled.button`
     transition: .2s;
     align-self: center;
 
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+
     &:hover {
         border: none;
         background: #c2181e;
         color: #fff;
         cursor: pointer;
     }
+
+    @media (min-width: 768px) {
+        visibility: hidden;
+    }
 `
 
 export default function BotaoComprar() {
     return(
-        <Link href={`/carrinho`}>
-            <StyledComprar>Comprar</StyledComprar>
-        </Link>
+        // <Link href={`/carrinho`}>
+            <StyledComprar>
+                <ShoppingCart />
+                <span>Comprar</span>
+            </StyledComprar>
+        // </Link>
     )
 }
