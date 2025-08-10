@@ -20,16 +20,15 @@ export default function Home() {
     return (
         <>
           <Header />
-            <CardContainer>
-              {Array.from({ length: 10 }).map((_, index) => (
-                <HqCard
-                  key={index}
-                  img="https://m.media-amazon.com/images/I/71mDEdjcyuL._SL1069_.jpg"
-                  titulo={`Titulo ${index + 1}`}
-                />
-              ))}
-              {/* <HqCard img={`https://m.media-amazon.com/images/I/71mDEdjcyuL._SL1069_.jpg`} titulo={`Titulo`}/> */}
-            </CardContainer>
+          <CardContainer>
+            {Array.from({ length: 10 }).map((_, index) => (
+              <HqCard
+                key={index}
+                img="https://m.media-amazon.com/images/I/919iJKHbeVL._SL1500_.jpg"
+                titulo={`Título ${index + 1}`}
+              />
+            ))}
+          </CardContainer>
         </>
     )
 }

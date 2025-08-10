@@ -1,3 +1,4 @@
+import Link from "next/link"
 import styled from "styled-components"
 
 const StyledHeader = styled.header`
@@ -26,7 +27,9 @@ const StyledHeader = styled.header`
 export default function Header() {
     return (
         <StyledHeader>
-            <p>MARVEL HQ STORE</p>
+            <Link href="/">
+                <p>MARVEL HQ STORE</p>
+            </Link>
         </StyledHeader>
     )
 }

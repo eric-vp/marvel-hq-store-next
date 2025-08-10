@@ -1,4 +1,6 @@
+import Link from "next/link"
 import styled from "styled-components"
+import BotaoComprar from "./BotaoComprar"
 
 const StyledCard = styled.div`
     padding: 1rem;
@@ -7,6 +9,7 @@ const StyledCard = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1 1 calc(50% - 1rem);
+    align-items: center;
     gap: .5rem;
     transition: .2s;
 
@@ -29,32 +32,15 @@ const StyledPreco = styled.p`
     font-weight: bold;
 `
 
-const StyledComprar = styled.button`
-    border: none;
-    background: #ec1d24;
-    color: #fff;
-    border-radius: 5px;
-    padding: .5rem;
-    font-size: 18px;
-    transition: .2s;
-    align-self: center;
-
-    &:hover {
-        border: none;
-        background: #c2181e;
-        color: #fff;
-        cursor: pointer;
-    }
-`
-
-export default function HqCard({img, titulo}) {
+export default function HqCard({index, img, titulo}) {
     return (
         <StyledCard>
-            {/* <img src="https://m.media-amazon.com/images/I/71mDEdjcyuL._SL1069_.jpg" alt="Capa batman 1" /> */}
-            <img src={img} alt={titulo} />
-            <p>{titulo}</p>
-            <StyledPreco>R$ 30,00</StyledPreco>
-            <StyledComprar>Comprar</StyledComprar>
+            <Link href={`/detalhes?id=${index + 1}`}>
+                <img src={img} alt={titulo} />
+            </Link>
+                <p>{titulo}</p>
+                <StyledPreco>R$ 30,00</StyledPreco>
+                <BotaoComprar />
         </StyledCard>
     )
 }
