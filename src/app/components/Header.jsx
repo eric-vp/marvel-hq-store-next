@@ -1,5 +1,6 @@
 import { ShoppingCart } from "lucide-react"
 import Link from "next/link"
+import { useSelector } from "react-redux";
 import styled from "styled-components"
 
 const StyledHeader = styled.header`
@@ -12,7 +13,7 @@ const StyledHeader = styled.header`
     
     color: #fff;
     font-family: var(--font-bebas-neue), sans-serif;
-    font-size: 28px;
+    font-size: 18px;
     
     display: flex;
     flex-direction: row;
@@ -20,22 +21,48 @@ const StyledHeader = styled.header`
     align-items: center;
     z-index: 10;
 
-    p {
+    h1 {
         background-color: #ec1d24;
         padding: .1rem;
         color: #fff;
         font-weight: bold;
     }
 `
+const StyledContador = styled.div`
+    position: relative;
+    cursor: pointer;
+`
+
+const Badge = styled.span`
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ec1d24;
+    color: #fff;
+    font-size: .7rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 6px;
+    min-width: 20px;
+    text-align: center;
+    pointer-events: none;
+`
 
 export default function Header() {
+    const totalHqs = useSelector((state) => 
+        state.cart.items.reduce((acc, item) => acc + (item.quantidade || 1), 0)
+    );
+
     return (
         <StyledHeader>
             <Link href="/">
-                <p>MARVEL HQ STORE</p>
+                <h1>MARVEL HQ STORE</h1>
             </Link>
             <Link href="/carrinho">
-                <ShoppingCart />
+                <StyledContador>
+                    <ShoppingCart />
+                    {totalHqs > 0 && <Badge>{totalHqs}</Badge>}
+                </StyledContador>
             </Link>
         </StyledHeader>
     )

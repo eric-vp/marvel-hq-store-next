@@ -36,14 +36,14 @@ const StyledPreco = styled.p`
     font-weight: bold;
 `
 
-export default function HqCard({index, img, titulo, descricao}) {
+export default function HqCard({id, img, titulo, descricao}) {
     const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
     const query = new URLSearchParams({
-        id: (index+1).toString(),
+        id: (id).toString(),
         titulo: titulo,
         img: img,
-        preco: "R$ 30,00",
+        preco: 30.00,
         descricao: descricao ||  loremIpsum
     }).toString();
 
@@ -56,7 +56,7 @@ export default function HqCard({index, img, titulo, descricao}) {
             </Link>
             <p>{titulo}</p>
             <StyledPreco>R$ 30,00</StyledPreco>
-            <BotaoComprar />
+            <BotaoComprar item={{ id: id.toString(), titulo: titulo, preco: 30, img: img}}/>
         </StyledCard>
     )
 }

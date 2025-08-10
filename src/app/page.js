@@ -47,6 +47,7 @@ export default function Home() {
             .map((comic, index) => (
               <HqCard
                 key={index}
+                id={comic.id}
                 img={comic.image?.medium_url}
                 titulo={comic.name}
                 descricao={comic.description}

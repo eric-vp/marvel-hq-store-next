@@ -83,8 +83,8 @@ export default function DetalhesHq() {
                 <img src={img} alt={titulo} />
                 <InformacoesHq>
                     <h2>{titulo}</h2>
-                    <StyledPreco>{preco}</StyledPreco>
-                    <BotaoComprar />
+                    <StyledPreco>R$ {parseFloat(preco).toFixed(2).replace('.', ',')}</StyledPreco>
+                    <BotaoComprar item={{ id: id.toString(), titulo: titulo, preco: 30, img: img }}/>
                     <StyledDescricao>
                         <p>Descrição:</p>
                         {descricao}

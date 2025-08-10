@@ -1,5 +1,6 @@
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/cartSlice"
 import { ShoppingCart } from "lucide-react"
-import Link from "next/link"
 import styled from "styled-components"
 
 export const StyledComprar = styled.button`
@@ -25,13 +26,13 @@ export const StyledComprar = styled.button`
     }
 `
 
-export default function BotaoComprar() {
+export default function BotaoComprar({ item }) {
+    const dispatch = useDispatch();
+
     return(
-        // <Link href={`/carrinho`}>
-            <StyledComprar>
-                <ShoppingCart />
-                <span>Comprar</span>
-            </StyledComprar>
-        // </Link>
+        <StyledComprar onClick={() => dispatch(addToCart(item))}>
+            <ShoppingCart />
+            <span>Comprar</span>
+        </StyledComprar>
     )
 }
