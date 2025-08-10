@@ -4,6 +4,8 @@ import styled from "styled-components"
 import Header from "./components/Header"
 import HqCard from "./components/HqCard";
 import { useEffect, useState } from "react";
+import { StyledComprar } from "./components/BotaoComprar";
+import Footer from "./components/Footer";
 
 
 const CardContainer = styled.div`
@@ -13,7 +15,12 @@ const CardContainer = styled.div`
     gap: .5rem;
 
     @media (min-width: 768px) {
-        padding: 100px 10rem 0 10rem;
+      min-height: 100vh;
+      padding: 100px 10rem 0 10rem;
+
+      ${StyledComprar} {
+        visibility: hidden;
+      }
     }
 `
 
@@ -42,12 +49,14 @@ export default function Home() {
                 key={index}
                 img={comic.image?.medium_url}
                 titulo={comic.name}
+                descricao={comic.description}
               />
             ))
           ) : (
             <p>Carregando quadrinhos...</p>
           )}
         </CardContainer>
+        <Footer />
       </>
   )
 }

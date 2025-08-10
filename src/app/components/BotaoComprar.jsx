@@ -23,10 +23,6 @@ export const StyledComprar = styled.button`
         color: #fff;
         cursor: pointer;
     }
-
-    @media (min-width: 768px) {
-        visibility: hidden;
-    }
 `
 
 export default function BotaoComprar() {

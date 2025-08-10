@@ -12,7 +12,7 @@ const StyledCard = styled.div`
     align-items: flex-start;
     gap: .5rem;
     transition: .2s;
-    
+
     &:hover {
         box-shadow: 0 5px 20px 0px #ddd;
     }
@@ -36,10 +36,22 @@ const StyledPreco = styled.p`
     font-weight: bold;
 `
 
-export default function HqCard({index, img, titulo}) {
+export default function HqCard({index, img, titulo, descricao}) {
+    const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+    const query = new URLSearchParams({
+        id: (index+1).toString(),
+        titulo: titulo,
+        img: img,
+        preco: "R$ 30,00",
+        descricao: descricao ||  loremIpsum
+    }).toString();
+
+    console.log('Navegando para:', `/detalhes?${query}`);
+
     return (
         <StyledCard>
-            <Link href={`/detalhes?id=${index + 1}`}>
+            <Link href={`/detalhes?${query}`}>
                 <img src={img} alt={titulo} />
             </Link>
             <p>{titulo}</p>

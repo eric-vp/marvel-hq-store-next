@@ -3,19 +3,22 @@ import Link from "next/link"
 import styled from "styled-components"
 
 const StyledHeader = styled.header`
+    width: 100%;
+    height: 60px;
     padding: 0 2rem;
     background-color: #222;
+    position: fixed;
+    top: 0;
+    
     color: #fff;
-    font-size: 22px;
+    font-family: var(--font-bebas-neue), sans-serif;
+    font-size: 28px;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
     z-index: 10;
-    top: 0;
-    width: 100%;
-    height: 50px;
 
     p {
         background-color: #ec1d24;
