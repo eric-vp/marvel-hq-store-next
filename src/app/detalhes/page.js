@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import styled from "styled-components";
 import BotaoComprar, { StyledComprar } from "../components/BotaoComprar";
 import Footer from "../components/Footer";
+import { Suspense } from "react";
 
 const DetalhesContainer = styled.div`
     padding: 100px 1rem 3rem 1rem;
@@ -79,18 +80,20 @@ export default function DetalhesHq() {
     return (
         <>
             <Header />
-            <DetalhesContainer>
-                <img src={img} alt={titulo} />
-                <InformacoesHq>
-                    <h2>{titulo}</h2>
-                    <StyledPreco>R$ {parseFloat(preco).toFixed(2).replace('.', ',')}</StyledPreco>
-                    <BotaoComprar item={{ id: id.toString(), titulo: titulo, preco: 30, img: img }}/>
-                    <StyledDescricao>
-                        <p>Descrição:</p>
-                        {descricao}
-                    </StyledDescricao>
-                </InformacoesHq>
-            </DetalhesContainer>
+            <Suspense fallback={<div>Carregando...</div>}>
+                <DetalhesContainer>
+                    <img src={img} alt={titulo} />
+                    <InformacoesHq>
+                        <h2>{titulo}</h2>
+                        <StyledPreco>R$ {parseFloat(preco).toFixed(2).replace('.', ',')}</StyledPreco>
+                        <BotaoComprar item={{ id: id.toString(), titulo: titulo, preco: 30, img: img }}/>
+                        <StyledDescricao>
+                            <p>Descrição:</p>
+                            {descricao}
+                        </StyledDescricao>
+                    </InformacoesHq>
+                </DetalhesContainer>
+            </Suspense>
             <Footer />
         </>
     );
