@@ -30,7 +30,7 @@ export default function BotaoComprar({ item }) {
     const dispatch = useDispatch();
 
     return(
-        <StyledComprar onClick={() => dispatch(addToCart(item))}>
+        <StyledComprar data-testid="hq-comprar" onClick={() => dispatch(addToCart(item))}>
             <ShoppingCart />
             <span>Comprar</span>
         </StyledComprar>

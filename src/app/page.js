@@ -19,7 +19,7 @@ const CardContainer = styled.div`
       padding: 100px 10rem 0 10rem;
 
       ${StyledComprar} {
-        visibility: hidden;
+        /* visibility: hidden; */
       }
     }
 `

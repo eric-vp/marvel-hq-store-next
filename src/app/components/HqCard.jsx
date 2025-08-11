@@ -50,9 +50,9 @@ export default function HqCard({id, img, titulo, descricao}) {
     console.log('Navegando para:', `/detalhes?${query}`);
 
     return (
-        <StyledCard>
+        <StyledCard data-testid="hq-card">
             <Link href={`/detalhes?${query}`}>
-                <img src={img} alt={titulo} />
+                <img data-testid="hq-img" src={img} alt={titulo} />
             </Link>
             <p>{titulo}</p>
             <StyledPreco>R$ 30,00</StyledPreco>

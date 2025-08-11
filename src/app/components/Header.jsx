@@ -59,7 +59,7 @@ export default function Header() {
                 <h1>MARVEL HQ STORE</h1>
             </Link>
             <Link href="/carrinho">
-                <StyledContador>
+                <StyledContador data-testid="carrinho" >
                     <ShoppingCart />
                     {totalHqs > 0 && <Badge>{totalHqs}</Badge>}
                 </StyledContador>
