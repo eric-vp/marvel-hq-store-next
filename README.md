@@ -36,7 +36,7 @@ Foram implementados testes E2E com Cypress para:
 - Remover um item do carrinho
 
 ## Deploy
-O projeto está hospedado na Vercel.
+O projeto ainda não está hospedado na Vercel por conta de alguns erros no deploy. (O clássico "na minha máquina funciona" atacou de novo!)
 
 ## Lições Aprendidas
 
@@ -47,3 +47,7 @@ Este projeto me ensinou muito sobre:
 - Gerenciamento de estado global com Redux Toolkit
 - Boas práticas em responsividade e experiência do usuário
 - Configuração e escrita de testes E2E
+
+## Autor
+
+[<img loading="lazy" src="https://github.com/eric-vp.png" width=50><br><sub>Eric Palavro</sub>](https://www.linkedin.com/in/eric-vieira-palavro/)
